@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        
+     </head>
+    <body>
+        <div id="generator">
+        <h1 style="color:aliceblue">Generate a</h1>
+        <h1 style="color:rgb(52, 138, 52)">random password</h1>
+        <p style="color:rgb(112, 118, 118)">Never use an insecure password again.</p>
+        <button id="btn" onclick="passwd()"> Generate passwords</button>
+        <input type="number" id="length" placeholder="Default length is 20"><br>
+            <div class="onOff">
+                <div>
+                    <label>Symbols Off</label>
+                    <input type="checkbox" id="symbol">
+                </div>
+                <br>
+                <div>
+                    <label>Numbers Off</label>
+                    <input type="checkbox" id="number">
+                </div>
+            </div>
+        </div>
+        <div id="screen">
+            <p onclick="copy()" id="output" style="color:rgb(52,138,52)"></p>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+body{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height:80vh;
+}
+input{
+    margin:5px 0px;
+}
+button{
+    margin:10px 5px;
+    font-size:12px;
+}

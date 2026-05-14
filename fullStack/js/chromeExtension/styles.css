@@ -1,0 +1,42 @@
+body{
+    min-width:400px;
+}
+input{
+    width:100%;
+    border:2px solid green;
+    font-size:20px;
+    padding:10px;
+    box-sizing:border-box;
+    margin:4px;
+}
+button{
+    margin:4px;
+    color:white;
+    background-color:green;
+    font-size:20px;
+    padding:10px;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+}
+button:hover{
+    font-size:25px;
+}
+#delete-btn{
+    color:green;
+    background-color:white;
+    border:2px solid green;
+}
+ul {
+    color:green;
+    list-style:none;
+    padding-left:0px;
+}
+li{
+    font-size:18px;
+    font-style:italic;
+    margin:3px;
+}
+li a{
+    color:green;
+}

@@ -1,0 +1,33 @@
+body{
+    width:450px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 100px;
+}
+.layer1 {
+    height:200px;
+    background-color:rgb(39, 39, 119);
+    display: flex;
+    /* margin-left:10px;
+    margin-right:10px; */
+}
+.layer2{
+    height:10px;
+    background-color:rgba(205, 113, 197, 0.443);
+}
+.image{
+    background-color:grey;
+    margin-top:25px;
+    margin-bottom:15px;
+    height:150px;
+    width:150px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.space{
+    color:white;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20px;
+}

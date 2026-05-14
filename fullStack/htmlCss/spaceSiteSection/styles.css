@@ -1,0 +1,28 @@
+.phrase{
+    /* border:10px solid black; */
+    margin:0;
+    text-align:center;
+    color:rgb(13, 142, 193);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+h1 u{
+    text-decoration-color:rgb(255,255,255);
+    /* "text-decoration-color" sets color for underline */
+}
+.mainPhrase{
+    background-image:url("giphy.gif");
+    background-repeat:no-repeat;
+    background-size:100%;
+    background-attachment:fixed;
+    padding:25px 0 25px 0;
+}
+.phrase p{
+    font-size:20px;
+}
+.btn{
+    font-size:15px;
+    padding:5px 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(13, 142, 193);
+}

@@ -1,0 +1,67 @@
+body{
+    background: linear-gradient(rgb(226, 219, 126),rgb(64, 241, 211));
+    /* text-shadow: 2px 0px 10px black; */
+}
+a{
+    margin:10px;
+}
+head{
+    color: rgb(0,0,0);
+}
+.basicsInfo img{
+    height:100px;
+    width:100px;
+    border: 4px solid black;
+    border-radius:100%;
+}
+.basicsInfo h3{
+    text-shadow:0px 0px 5px black;
+    /* height:auto; */
+    /* width:200px; */
+    /* margin:10 auto; */
+    border:2px solid rgb(252, 184, 102);
+    background-color:rgb(255, 228, 196);
+}
+.basicsInfo p{
+    /* height:auto; */
+    /* width:150px; */
+    /* margin:10 auto; */
+    border:2px solid rgb(252, 184, 102);
+    background-color:bisque;
+}
+div {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    /* justify-content:center; */
+    /* text-align:center; */
+    /* border: 2px solid black; */
+    color:rgb(0, 0, 0);
+}
+div p{
+    margin-top:-10px;
+}
+div img{
+    height:400px;
+    width:400px;
+    border:2px solid black;
+    background:url("presentCover.jpg");
+    background-size:cover;
+}
+div img:hover{
+    background-size:cover;
+    background:url("giphy.gif");
+    /* background-color:black; */
+}
+.rect {
+    background:url("presentCover.jpg");
+    background-size:cover;
+    height:200px;
+    width:400px;
+    border:2px solid black;
+}
+.rect:hover{
+    background:url("giphy.gif");
+    background-size:cover;
+    background-position:center;
+}

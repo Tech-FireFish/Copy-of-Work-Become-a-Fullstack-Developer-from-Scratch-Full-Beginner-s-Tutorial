@@ -1,0 +1,98 @@
+body{
+    background-color:rgb(184, 149, 103);
+}
+/* first div */
+.intro{
+    /* background image */
+    height:300px;
+    background-image:url(image/londonBridge.jpg);
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    margin:-8px -8px 0px -8px;
+}
+.intro h1,.intro h3{
+    /* title */
+    color:white;
+    border-radius:5px;
+    background:linear-gradient(rgba(66, 194, 244, 0.271),rgba(255, 255, 255, 0.555));
+    padding:5px 5px;
+}
+/* second div */
+.activities{
+    margin:0px -8px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.activities h3{
+    text-align:center;
+    border-radius:5px;
+}
+.subActivity div{
+    width:200px;
+    height:350px;
+    text-align:center;
+}
+.subActivity h4, .subAtctivity p{
+    border-radius:5px;
+}
+.subActivity{
+    height:400px;
+    width:800px;
+    display:flex;
+    justify-content:space-around;
+}
+.subActivity img{
+    height:100px;
+    width:100px;
+    border: 2px solid white;
+    margin:10px;
+    border-radius:100%;
+}
+#londonTower{
+    background-image:url("image/londonTower.jpg");
+    background-size:cover;
+    background-position:center;
+}
+#londonEye{
+    background-image:url("image/londonEye.jpg");
+    background-size:cover;
+    background-position:center;
+}
+#londonMuseum{
+    background-image:url("image/londonMuseum.jpg");
+    background-size:cover;
+    background-position:center;
+}
+
+/* third div */
+.footer{
+    margin:0px -8px 0px -8px;
+    display:flex;
+    justify-content:space-around;
+    background-color:aliceblue;
+}
+.footer img{
+    background-image:url("image/profile.jpg");
+    background-size:cover;
+    margin:10px 0px;
+    height:400px;
+    width:300px;
+    border-radius:5px;
+}
+.footer div {
+    text-align: center;
+    margin:auto 0px;
+    border-radius:5px;
+}
+#profileInfo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:20px 0px;
+}

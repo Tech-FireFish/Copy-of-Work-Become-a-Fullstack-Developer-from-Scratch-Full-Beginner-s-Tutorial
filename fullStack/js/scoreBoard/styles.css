@@ -1,0 +1,52 @@
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+div{
+    /* border:2px solid black; */
+    margin: 20px 20px;
+    text-align:center;
+    padding:5px 2px;
+}
+h1{
+    color:white;
+}
+label{
+    font-size:80px;
+    color:rgb(185, 4, 4);
+    border:2px solid rgb(177, 177, 177);
+    background-color:rgb(29, 29, 29);
+    border-radius:5px;
+}
+@font-face {
+    font-family: "sportFont"; /* Name you'll use in CSS */
+    src: url("baseball-club-solid/BaseballClubSolid.otf");
+}
+.container{
+    border:4px solid rgb(66, 66, 103);
+    width:600px;
+    display:flex;
+    justify-content:center;
+    margin:0px auto;
+    background-color:rgb(15, 15, 79);
+    font-family: 'sportFont';
+    border-radius:5px;
+}
+button{
+    margin:20px 0px 0px 0px; 
+    padding: 2px;
+    font-size:15px;
+    font-family:'sportFont';
+    font-size:20px;
+    padding:4px;
+    background:transparent;
+    color:white;
+    border:2px solid rgb(177, 177, 177);
+}
+button:hover{
+    background-color:rgb(1, 60, 112);
+}
+/* #newGame{
+    border:2px solid black;
+} */
