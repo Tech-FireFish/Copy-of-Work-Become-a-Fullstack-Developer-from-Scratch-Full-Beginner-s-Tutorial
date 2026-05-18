@@ -205,3 +205,47 @@ import {} from "./data.js";
 //     console.log(err);
 // }
 
+///////////////////
+//Super Challenge//
+///////////////////
+// function getImagePromise(url){
+//     return new Promise((resolve, reject)=>{
+//         setTimeout(()=>{
+//             const img = new Image();
+//             img.src=url;
+//             img.alt="The image link is: "+url;
+//             img.addEventListener('load',()=>resolve(img))
+//             img.addEventListener('error',()=>reject(new Error('Image NOT Found')))
+//         },500)
+//     })
+// }
+// const images = [
+//     'https://scrimba.com/links/advancedjs-resources-images-scenic1',
+//     'https://scrimba.com/links/advancedjs-resources-images-scenic2',
+//     'https://scrimba.com/links/advancedjs-resources-images-scenic3',
+// ]
+// async function preloadImages(imageUrlArr){
+//     const imageContainer = document.getElementById('image-container');
+//     // const uploadContainer = document.getElementById('upload-container');
+//     try{
+//         // ONE WAY
+//         // const promise1 = getImagePromise(imageUrlArr[0]);
+//         // const promise2 = getImagePromise(imageUrlArr[1]);
+//         // const promise3 = getImagePromise(imageUrlArr[2]);
+//         //const result = await Promise.all([promise1,promise2,promise3]);
+//         // THE OTHER
+//         const promises = imageUrlArr.map((url)=>getImagePromise(url));
+//         const result = await Promise.all(promises);
+//         console.log(result);
+//         console.log('Operation Successful');
+//         //Advanced Method:
+//         result.forEach((img)=>imageContainer.appendChild(img));
+//         //Foundemental Method:
+//         // for(let i=0;i<result.length;i++){
+//         //     imageContainer.appendChild(result[i]);
+//         // }
+//     }catch(err){
+//         console.log(err);
+//     }
+// }
+// preloadImages(images);
