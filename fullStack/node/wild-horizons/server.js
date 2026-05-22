@@ -29,16 +29,45 @@ console.log("The server is running!");
 //     console.log(`The request was successful! on port: ${PORT}`);
 // });
 
+// const PORT = 8000;
+// const server = http.createServer((req,res)=>{
+//     if(req.url === '/api' && req.method === 'GET'){
+//         console.log(req.url);
+//     res.end('The request is successful!');
+//     }else{
+
+//     }
+// });
+// server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
+
+// const PORT = 8000;
+// const animal = {
+//     type:'elephant',
+//     nickName:'Elon Tusk',
+// };
+// console.log(JSON.stringify(animal));
+// const server = http.createServer((req,res)=>{
+//     if(req.url === '/api' && req.method === 'GET'){
+//         console.log(req.url);
+//     res.end('The request is successful!');
+//     }else{
+
+//     }
+// });
+// server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
+
+import { randList } from "./data.js";
+const importedData = randList;
+const data = JSON.stringify(importedData);
+console.log(data);
 const PORT = 8000;
 const server = http.createServer((req,res)=>{
-
     if(req.url === '/api' && req.method === 'GET'){
         console.log(req.url);
-    res.end('The request is successful!');
+        res.write(data);
+        res.end('The request is successful!');
     }else{
 
     }
-   
 });
 server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
-
