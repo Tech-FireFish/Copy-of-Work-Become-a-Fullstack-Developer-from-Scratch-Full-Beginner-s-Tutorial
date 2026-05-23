@@ -34,8 +34,6 @@ console.log("The server is running!");
 //     if(req.url === '/api' && req.method === 'GET'){
 //         console.log(req.url);
 //     res.end('The request is successful!');
-//     }else{
-
 //     }
 // });
 // server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
@@ -50,24 +48,47 @@ console.log("The server is running!");
 //     if(req.url === '/api' && req.method === 'GET'){
 //         console.log(req.url);
 //     res.end('The request is successful!');
-//     }else{
-
 //     }
 // });
 // server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
 
-import { randList } from "./data.js";
-const importedData = randList;
-const data = JSON.stringify(importedData);
-console.log(data);
+// const randList = [{"color":"blue","shape":'rect'},];
+// const PORT = 8000;
+// const server = http.createServer(async (req,res)=>{
+//     const data = await JSON.stringify(randList);
+//     if(req.url === '/api' && req.method === 'GET'){
+//         console.log(req.url);
+//         res.end(JSON.stringify(data));
+//     }
+// });
+// server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
+
+// import {placesToGo} from "./data.js";
+// const randList = placesToGo;
+// const PORT = 8000;
+// const server = http.createServer(async (req,res)=>{
+//     const data = await JSON.stringify(randList);
+//     if(req.url === '/api' && req.method === 'GET'){
+//         console.log(req.url);
+//         res.setHeader("Content-Type","application/json");
+//         res.statusCode = 200;
+//         res.end(JSON.stringify(data));
+//     }
+// });
+// server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
+
+import {placesToGo} from "./data.js";
+const randList = placesToGo;
 const PORT = 8000;
-const server = http.createServer((req,res)=>{
+const server = http.createServer(async (req,res)=>{
+    const data = await JSON.stringify(randList);
     if(req.url === '/api' && req.method === 'GET'){
         console.log(req.url);
-        res.write(data);
-        res.end('The request is successful!');
+        res.setHeader("Content-Type","application/json");
+        res.statusCode = 200;
+        res.end(JSON.stringify(data));
     }else{
-
+        
     }
 });
 server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
