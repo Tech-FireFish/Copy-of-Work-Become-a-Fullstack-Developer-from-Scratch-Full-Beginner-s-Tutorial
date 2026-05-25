@@ -96,31 +96,126 @@ console.log("The server is running!");
 // server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
 
 // Add Path Parameters//
+// import {travelList} from "./data.js";
+// const importedList = travelList;
+// const PORT = 8000;
+// const server = http.createServer(async (req,res)=>{
+//     const data = await JSON.stringify(importedList);
+//     if(req.url === '/api' && req.method === 'GET'){
+//         console.log(req.url);
+//         res.setHeader("Content-Type","application/json");
+//         res.statusCode = 200;
+//         res.end(data);
+//     }else if(req.url === "/api/Europe" && req.method === 'GET'){
+//         const path = req.url.split('/').pop();
+//         console.log(path);
+//         const filteredData = importedList.filter((whatToFilter)=>{
+//             return whatToFilter.continent.toLowerCase() === path.toLowerCase(); 
+//         });
+//         res.setHeader("Content-Type","application/json");
+//         res.statusCode = 200;
+//         res.end(JSON.stringify(filteredData));
+//     }else{
+//         res.setHeader("Content-Type","application/json");
+//         res.statusCode = 404;
+//         res.end(JSON.stringify({error:"NOT Found",message:"The requested route does not exist."}));
+//     }
+// });
+// server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
+
+// Modularise the Code 1//
+// import {travelList} from "./data.js";
+// import {sendJSONResponse} from "./index.js";
+// const importedList = travelList;
+// const PORT = 8000;
+// const server = http.createServer(async (req,res)=>{
+//     const data = importedList;
+//     if(req.url === '/api' && req.method === 'GET'){
+//         console.log(req.url);
+//         sendJSONResponse(res,200,data);
+//     }else if(req.url === "/api/Europe" && req.method === 'GET'){
+//         const path = req.url.split('/').pop();
+//         console.log(path);
+//         const filteredData = importedList.filter((whatToFilter)=>{
+//             return whatToFilter.continent.toLowerCase() === path.toLowerCase(); 
+//         });
+//         sendJSONResponse(res,200,filteredData);
+//     }else{
+//         sendJSONResponse(res,404,{
+//             error:"NOT Found",
+//             message:"The requested route does not exist."
+//         });
+//     }
+// });
+// server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
+
+// Modularise the Code 2//
+// import {travelList} from "./data.js";
+// import {sendJSONResponse} from "./index.js";
+// import {produceFilteredData} from "./index.js";
+// const importedList = travelList;
+// const PORT = 8000;
+// const server = http.createServer(async (req,res)=>{
+//     const data = importedList;
+//     if(req.url === '/api' && req.method === 'GET'){
+//         console.log(req.url);
+//         sendJSONResponse(res,200,data);
+//     }else if(req.url.startsWith("/api/continent") && req.method === 'GET'){
+//         const path = req.url.split('/').pop();
+//         const filteredData = produceFilteredData(travelList,"continent",path);
+//         sendJSONResponse(res,200,filteredData);
+//     }else if(req.url.startsWith("/api/country") && req.method === 'GET'){
+//         const path = req.url.split('/').pop();
+//         const filteredData = produceFilteredData(travelList,"country",path);
+//         sendJSONResponse(res,200,filteredData);
+//     }else{
+//         sendJSONResponse(res,404,{
+//             error:"NOT Found",
+//             message:"The requested route does not exist."
+//         });
+//     }
+// });
+// server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
+
+// Query Params//
+//new URL is a url constructor requires two parameters:
+//inputed url & the protocol/beginning of a url
+// const PORT = 8000;
+// const server = http.createServer((req,res)=>{
+//     console.log(req.headers);
+//     const urlObj = new URL(req.url, `http://${req.headers.host}`);
+//     const queryObj = Object.fromEntries(urlObj.searchParams);
+//     console.log(queryObj);
+// })
+// server.listen(PORT,()=> console.log(`Server listening on port ${PORT}`));
+
+//Get the QUery Parameters
 import {travelList} from "./data.js";
+import {sendJSONResponse} from "./index.js";
+import {produceFilteredData} from "./index.js";
 const importedList = travelList;
 const PORT = 8000;
 const server = http.createServer(async (req,res)=>{
-    const data = await JSON.stringify(importedList);
-    if(req.url === '/api' && req.method === 'GET'){
+    const data = importedList;
+    const urlObj = new URL(req.url, `http://${req.headers.host}`);
+    const queryObj = Object.fromEntries(urlObj.searchParams);
+    if(urlObj.pathname === '/api' && req.method === 'GET'){
+        console.log(queryObj);
         console.log(req.url);
-        res.setHeader("Content-Type","application/json");
-        res.statusCode = 200;
-        res.end(data);
-    }else if(req.url === "/api/Europe" && req.method === 'GET'){
+        sendJSONResponse(res,200,data);
+    }else if(req.url.startsWith("/api/continent") && req.method === 'GET'){
         const path = req.url.split('/').pop();
-        console.log(path);
-        const filteredData = importedList.filter((whatToFilter)=>{
-            return whatToFilter.continent.toLowerCase() === path.toLowerCase(); 
-        });
-        res.setHeader("Content-Type","application/json");
-        res.statusCode = 200;
-        res.end(JSON.stringify(filteredData));
+        const filteredData = produceFilteredData(travelList,"continent",path);
+        sendJSONResponse(res,200,filteredData);
+    }else if(req.url.startsWith("/api/country") && req.method === 'GET'){
+        const path = req.url.split('/').pop();
+        const filteredData = produceFilteredData(travelList,"country",path);
+        sendJSONResponse(res,200,filteredData);
     }else{
-        res.setHeader("Content-Type","application/json");
-        res.statusCode = 404;
-        res.end(JSON.stringify({error:"NOT Found",message:"The requested route does not exist."}));
+        sendJSONResponse(res,404,{
+            error:"NOT Found",
+            message:"The requested route does not exist."
+        });
     }
 });
 server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
-
-//Modularise the Code 1
