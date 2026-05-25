@@ -77,18 +77,50 @@ console.log("The server is running!");
 // });
 // server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
 
-import {placesToGo} from "./data.js";
-const randList = placesToGo;
+// import {placesToGo} from "./data.js";
+// const randList = placesToGo;
+// const PORT = 8000;
+// const server = http.createServer(async (req,res)=>{
+//     const data = await JSON.stringify(randList);
+//     if(req.url === '/api' && req.method === 'GET'){
+//         console.log(req.url);
+//         res.setHeader("Content-Type","application/json");
+//         res.statusCode = 200;
+//         res.end(JSON.stringify(data));
+//     }else{
+//         res.setHeader("Content-Type","application/json");
+//         res.statusCode = 404;
+//         res.end(JSON.stringify({error:"NOT Found",message:"The requested route does not exist."}));
+//     }
+// });
+// server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
+
+// Add Path Parameters//
+import {travelList} from "./data.js";
+const importedList = travelList;
 const PORT = 8000;
 const server = http.createServer(async (req,res)=>{
-    const data = await JSON.stringify(randList);
+    const data = await JSON.stringify(importedList);
     if(req.url === '/api' && req.method === 'GET'){
         console.log(req.url);
         res.setHeader("Content-Type","application/json");
         res.statusCode = 200;
-        res.end(JSON.stringify(data));
+        res.end(data);
+    }else if(req.url === "/api/Europe" && req.method === 'GET'){
+        const path = req.url.split('/').pop();
+        console.log(path);
+        const filteredData = importedList.filter((whatToFilter)=>{
+            return whatToFilter.continent.toLowerCase() === path.toLowerCase(); 
+        });
+        res.setHeader("Content-Type","application/json");
+        res.statusCode = 200;
+        res.end(JSON.stringify(filteredData));
     }else{
-        
+        res.setHeader("Content-Type","application/json");
+        res.statusCode = 404;
+        res.end(JSON.stringify({error:"NOT Found",message:"The requested route does not exist."}));
     }
 });
 server.listen(PORT, ()=>console.log(`server running on port: ${PORT}`));
+
+//Modularise the Code 1

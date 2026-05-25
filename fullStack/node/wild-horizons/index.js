@@ -1,9 +1,8 @@
-import {} from "./data.js";
+import {travelList} from "./data.js";
 
-const response = await fetch("url",{
-    method:"POST",
-    body:JSON.stringify({username:"tom_1"}),
-    headers:{
-        "Content-Type":"application/json",
-    }
-})
+//Experiments
+const filteredData = travelList.filter((whatToFilter)=>{
+    return whatToFilter.continent.toLowerCase() === "asia"; 
+});
+console.log(filteredData);
+
