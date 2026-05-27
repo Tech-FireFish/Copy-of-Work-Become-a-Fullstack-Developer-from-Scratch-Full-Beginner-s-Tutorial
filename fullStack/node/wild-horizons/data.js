@@ -95,7 +95,7 @@ const travelList = [
     location: "Cusco Region",
     country: "Peru",
     continent: "South America",
-    is_open_to_public: true,
+    is_open_to_public: false,
     details: [
       {
         type: "archaeological_site",
@@ -131,7 +131,7 @@ const travelList = [
     location: "Barcelona",
     country: "Spain",
     continent: "Europe",
-    is_open_to_public: true,
+    is_open_to_public: false,
     details: [
       {
         type: "architecture",
@@ -185,7 +185,7 @@ const travelList = [
     location: "Ma'an Governorate",
     country: "Jordan",
     continent: "Asia",
-    is_open_to_public: true,
+    is_open_to_public: false,
     details: [
       {
         type: "historical_site",
@@ -195,6 +195,42 @@ const travelList = [
         type: "travel_info",
         walking_required: true,
         best_time_to_visit: "Early Morning"
+      }
+    ]
+  },
+  {
+    name: "Colosseum",
+    location: "Rome",
+    country: "Italy",
+    continent: "Europe",
+    is_open_to_public: true,
+    details: [
+      {
+        type: "historical_monument",
+        built_year: 80
+      },
+      {
+        type: "visitor_info",
+        guided_tours_available: true,
+        average_visit_hours: 3
+      }
+    ]
+  },
+  {
+    name: "Taj Mahal",
+    location: "Agra",
+    country: "India",
+    continent: "Asia",
+    is_open_to_public: false,
+    details: [
+      {
+        type: "mausoleum",
+        unesco_world_heritage: true
+      },
+      {
+        type: "travel_tip",
+        closed_on_fridays: true,
+        best_time_to_visit: "Sunrise"
       }
     ]
   }

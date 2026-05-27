@@ -193,6 +193,7 @@ console.log("The server is running!");
 import {travelList} from "./data.js";
 import {sendJSONResponse} from "./index.js";
 import {produceFilteredData} from "./index.js";
+import {getDataByQueryParams} from "./index.js";
 const importedList = travelList;
 const PORT = 8000;
 const server = http.createServer(async (req,res)=>{
@@ -202,7 +203,8 @@ const server = http.createServer(async (req,res)=>{
     if(urlObj.pathname === '/api' && req.method === 'GET'){
         console.log(queryObj);
         console.log(req.url);
-        sendJSONResponse(res,200,data);
+        let filteredData = getDataByQueryParams(travelList, queryObj);
+        sendJSONResponse(res,200,filteredData);
     }else if(req.url.startsWith("/api/continent") && req.method === 'GET'){
         const path = req.url.split('/').pop();
         const filteredData = produceFilteredData(travelList,"continent",path);
